@@ -1,91 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Asistente IA - EasyTech</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #e0e0e0;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 700px;
-            margin: 5% auto;
-            background-color: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
-        }
-
-        h1 {
-            text-align: center;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-
-        textarea, input[type="submit"] {
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        textarea {
-            height: 120px;
-            resize: vertical;
-            background-color: #1c1c1c;
-            color: #ffffff;
-        }
-
-        input[type="submit"] {
-            background: #00e6e6;
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        input[type="submit"]:hover {
-            background: #00b3b3;
-        }
-
-        .respuesta {
-            background-color: rgba(0, 0, 0, 0.3);
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 8px;
-            white-space: pre-line;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                margin: 10% 5%;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Charlie_Pty - Tu asesor de Odoo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 40px;
+    }
+    .container {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .iguana {
+      width: 200px;
+    }
+    h1 {
+      margin-top: 0;
+      font-size: 26px;
+      color: #2c3e50;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 400px;
+    }
+    textarea {
+      resize: none;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      height: 100px;
+    }
+    button {
+      padding: 10px;
+      background: #2c3e50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .respuesta {
+      background: #ecf0f1;
+      padding: 15px;
+      border-radius: 6px;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>💬 Asistente IA - EasyTech</h1>
-        <form method="post">
-            <label for="mensaje">Tu mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required>{{ prompt }}</textarea>
-            <input type="submit" value="Enviar">
-        </form>
-
-        {% if respuesta %}
-        <div class="respuesta">
-            <strong>Respuesta:</strong><br>
-            {{ respuesta }}
-        </div>
-        {% endif %}
+  <div class="container">
+    <img src="{{ url_for('static', filename='charlie_pty.png') }}" class="iguana" alt="Charlie_Pty">
+    <div>
+      <h1>Charlie_Pty — Tu asesor de Odoo</h1>
+      <p><i>Pregúntame cualquier cosa.</i></p>
+      <form method="POST">
+        <textarea name="mensaje" placeholder="Escribe tu mensaje aquí...">{{ prompt }}</textarea>
+        <button type="submit">Enviar</button>
+      </form>
+      {% if respuesta %}
+        <div class="respuesta">{{ respuesta }}</div>
+      {% endif %}
     </div>
+  </div>
 </body>
 </html>
