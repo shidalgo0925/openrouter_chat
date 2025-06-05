@@ -2,71 +2,74 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Charlie_Pty - Tu asesor de Odoo</title>
+  <title>Charlie Pity Odoo</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background: #f9f9f9;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
+      align-items: flex-start;
       padding-top: 40px;
     }
     .container {
       display: flex;
-      align-items: flex-start;
-      gap: 30px;
-      background: #fff;
+      gap: 40px;
+      background: white;
       padding: 30px;
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 900px;
     }
-    .iguana {
-      width: 200px;
-    }
-    h1 {
-      margin-top: 0;
-      font-size: 26px;
-      color: #2c3e50;
+    .charlie {
+      width: 250px;
     }
     form {
       display: flex;
       flex-direction: column;
-      gap: 10px;
       width: 400px;
+      gap: 10px;
     }
     textarea {
       resize: none;
       padding: 10px;
       font-size: 16px;
+      border-radius: 8px;
       border: 1px solid #ccc;
-      border-radius: 6px;
       height: 100px;
     }
     button {
-      padding: 10px;
-      background: #2c3e50;
+      background-color: #2c3e50;
       color: white;
       border: none;
       border-radius: 6px;
+      padding: 10px;
       font-size: 16px;
       cursor: pointer;
     }
     .respuesta {
-      background: #ecf0f1;
+      background-color: #eef2f3;
       padding: 15px;
       border-radius: 6px;
-      margin-top: 20px;
-      font-size: 15px;
+      margin-top: 10px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #2c3e50;
+    }
+    p {
+      font-style: italic;
+      color: #555;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="{{ url_for('static', filename='charlie_pty.png') }}" class="iguana" alt="Charlie_Pty">
+    <img src="{{ url_for('static', filename='CharliePity.png') }}" class="charlie" alt="Charlie Pity Odoo">
     <div>
-      <h1>Charlie_Pty — Tu asesor de Odoo</h1>
-      <p><i>Pregúntame cualquier cosa.</i></p>
+      <h1>Charlie Pity Odoo</h1>
+      <p>Tu asesor personal de Odoo, pregúntame lo que quieras.</p>
       <form method="POST">
         <textarea name="mensaje" placeholder="Escribe tu mensaje aquí...">{{ prompt }}</textarea>
         <button type="submit">Enviar</button>
