@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 
-# CORRECTO: Leer la API key desde las variables de entorno de Render
+# Leer API KEY desde variable de entorno
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "TU_API_KEY")
 
 MODEL = "mistralai/mistral-7b-instruct"
