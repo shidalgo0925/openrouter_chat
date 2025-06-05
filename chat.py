@@ -23,6 +23,10 @@ def chat():
             "Authorization": f"Bearer {OPENROUTER_API_KEY}",
             "Content-Type": "application/json"
         }
+
+        # 👇 Debug para ver si la API KEY se está leyendo correctamente
+        print("🔐 API KEY:", OPENROUTER_API_KEY)
+
         try:
             r = requests.post("https://openrouter.ai/api/v1/chat/completions", json=payload, headers=headers)
             r.raise_for_status()
