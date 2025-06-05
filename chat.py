@@ -4,8 +4,8 @@ import os
 
 app = Flask(__name__)
 
-#OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY") or "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"
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "TU_API_KEY_DE_RESERVA")
+# CORRECTO: Leer la API key desde las variables de entorno de Render
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "TU_API_KEY")
 
 MODEL = "mistralai/mistral-7b-instruct"
 
@@ -25,15 +25,10 @@ def chat():
         }
         try:
             r = requests.post("https://openrouter.ai/api/v1/chat/completions", json=payload, headers=headers)
-            print("Respuesta cruda de OpenRouter:")
-            print(r.text)  # Mostrar respuesta para depuración
-            respuesta_json = r.json()
-            if "choices" in respuesta_json:
-                respuesta = respuesta_json["choices"][0]["message"]["content"]
-            else:
-                respuesta = f"Respuesta inesperada: {respuesta_json}"
+            r.raise_for_status()
+            respuesta = r.json()["choices"][0]["message"]["content"]
         except Exception as e:
-            respuesta = f"Error: {str(e)}"
+            respuesta = f"Respuesta inesperada: {r.text if r is not None else str(e)}"
     return render_template("chat.html", respuesta=respuesta, prompt=prompt)
 
 if __name__ == "__main__":
