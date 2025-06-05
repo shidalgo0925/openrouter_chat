@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY") or "TU_API_KEY"
+OPENROUTER_API_KEY = os.getenv("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") or "TU_API_KEY"
 
 MODEL = "mistralai/mistral-7b-instruct"
 
