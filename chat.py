@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 # Leer API KEY desde variable de entorno
 #OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "TU_API_KEY")
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")  # ✅ obligatorio sin valor por defecto
+
 
 MODEL = "mistralai/mistral-7b-instruct"
 
@@ -16,6 +17,10 @@ def chat():
     prompt = ""
     if request.method == "POST":
         prompt = request.form["mensaje"]
+        
+        print(f"🔍 KEY detectada? {'Sí' if OPENROUTER_API_KEY else 'No'}")
+        print(f"🔑 Valor parcial: {OPENROUTER_API_KEY[:10] if OPENROUTER_API_KEY else 'VACÍA'}")
+        
         payload = {
             "model": MODEL,
             "messages": [{"role": "user", "content": prompt}]
