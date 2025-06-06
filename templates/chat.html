@@ -61,26 +61,28 @@
     }
 
     textarea {
-      resize: none;
-      padding: 12px;
-      font-size: 15px;
-      border: none;
-      border-radius: 8px;
-      background: #2a2a40;
-      color: white;
-      margin-bottom: 10px;
-      height: 100px;
+    width: 80%; /* Agregado */
+    resize: none;
+    padding: 12px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    background: #2a2a40;
+    color: white;
+    margin-bottom: 10px;
+    height: 150px;
     }
 
     button {
-      padding: 12px;
-      background: #00c3ff;
-      border: none;
-      border-radius: 8px;
-      color: black;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
+    align-self: flex-start; /* Agregado */
+    padding: 10px;
+    background: #00c3ff;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
     }
 
     button:hover {
@@ -105,11 +107,13 @@
       <img src="{{ url_for('static', filename='CharliePity.png') }}" alt="Charlie Pity">
     </div>
     <div class="form-side">
-      <h1>Charlie Pity Odoo</h1>
-      <p>Tu asesor inteligente de Odoo, pregúntame lo que necesites</p>
+      <h1>Charlie Pty Windsor</h1>
+      <p>Tu asesor inteligente de Odoo, pregúntame lo que quieras</p>
       <form method="POST">
         <textarea name="mensaje" placeholder="Escribe tu mensaje aquí...">{{ prompt }}</textarea>
-        <button type="submit">Enviar</button>
+        <div class="button-container"></div>
+            <button type="submit">Enviar</button>
+        </div>
       </form>
       {% if respuesta %}
         <div class="respuesta">{{ respuesta }}</div>
