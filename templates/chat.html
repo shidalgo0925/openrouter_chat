@@ -4,158 +4,140 @@
   <meta charset="UTF-8">
   <title>Charlie Pity Odoo</title>
   <style>
-        body {
-        margin: 0;
-        font-family: 'Segoe UI', sans-serif;
-        background: transparent;
-        color: #f1f1f1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        overflow: hidden;
-        }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: transparent;
+      color: #f1f1f1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        .chat-box {
-        background: #1a1a2e;
-        border-radius: 16px;
-        display: flex;
-        flex-direction: row;
-        width: 95%;
-        max-width: 860px;
-        box-shadow: 0 0 20px rgba(0,0,0,0.6);
-        overflow: hidden;
-        box-sizing: border-box;
-        }
+    .chat-box {
+      background: #1a1a2e;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: row;
+      width: 900px;
+      max-width: 95%;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
 
-        .charlie-side {
-        background: #12121f;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        }
+    .charlie-side {
+      background: #12121f;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
 
-        .charlie-side img {
-        width: 220px;
-        height: auto;
-        margin-bottom: 20px;
-        }
+    .charlie-side img {
+      width: 220px;
+      height: auto;
+      margin-bottom: 20px;
+    }
 
-        .form-side {
-        flex: 1;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        }
+    .form-side {
+      flex: 1;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+    }
 
-        h1 {
-        margin: 0;
-        font-size: 26px;
-        color: #72e0ff;
-        }
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #72e0ff;
+    }
 
-        p {
-        margin: 5px 0 20px;
-        font-style: italic;
-        color: #ccc;
-        }
+    p {
+      margin: 5px 0 20px;
+      font-style: italic;
+      color: #ccc;
+    }
 
-        textarea {
-        width: 100%;
-        resize: none;
-        padding: 12px;
-        font-size: 15px;
-        border: none;
-        border-radius: 10px;
-        background: #2a2a40;
-        color: white;
-        margin-bottom: 10px;
-        height: 80px;
-        box-sizing: border-box;
-        }
+    textarea {
+      width: 100%;
+      resize: none;
+      padding: 12px;
+      font-size: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #2a2a40;
+      color: white;
+      margin-bottom: 10px;
+      height: 80px;
+    }
 
-        .button-container {
-        display: flex;
-        justify-content: flex-start;
-        }
+    .button-container {
+      display: flex;
+      justify-content: flex-start;
+    }
 
-        button {
-        padding: 12px 24px;
-        background: #00c3ff;
-        border: none;
-        border-radius: 8px;
-        color: black;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background 0.3s;
-        }
+    button {
+      padding: 12px 24px;
+      background: #00c3ff;
+      border: none;
+      border-radius: 8px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
 
-        button:hover {
-        background: #00a8d6;
-        }
+    button:hover {
+      background: #00a8d6;
+    }
 
-        .respuesta {
-        background: #202033;
-        padding: 15px;
-        border-radius: 10px;
-        margin-top: 20px;
-        overflow-y: auto;
-        max-height: 400px;
-        font-size: 14px;
-        white-space: pre-line;
-        }
+    .respuesta {
+      background: #202033;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+      font-size: 14px;
+      white-space: pre-line;
+      max-height: 250px;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: #00c3ff #12121f;
+    }
 
-        /* Responsive para móviles */
-        @media (max-width: 600px) {
-        .chat-box {
-            flex-direction: column;
-            width: 95vw;
-            max-width: none;
-            height: auto;
-        }
+    .respuesta::-webkit-scrollbar {
+      width: 6px;
+    }
 
-        .charlie-side {
-            padding: 20px;
-        }
+    .respuesta::-webkit-scrollbar-thumb {
+      background-color: #00c3ff;
+      border-radius: 10px;
+    }
 
-        .charlie-side img {
-            width: 180px;
-        }
-
-        .form-side {
-            padding: 20px;
-        }
-
-        textarea {
-            height: 60px;
-        }
-
-        .respuesta {
-            max-height: 300px;
-        }
-        }
+    .respuesta::-webkit-scrollbar-track {
+      background: #12121f;
+    }
   </style>
 </head>
 <body>
-  <form method="POST">
-    <div class="chat-box">
-      <div class="charlie-side">
-        <img src="{{ url_for('static', filename='CharliePity.png') }}" alt="Charlie Pity Odoo">
-      </div>
-      <div class="form-side">
-        <h1>Charlie Pity Windsor</h1>
-        <p>Tu asesor experto en Odoo</p>
-        <textarea name="mensaje" placeholder="Hazme una pregunta...">{{ prompt }}</textarea>
+  <div class="chat-box">
+    <div class="charlie-side">
+      <img src="{{ url_for('static', filename='CharliePity2.png') }}" alt="Charlie Pity Windsor">
+    </div>
+    <div class="form-side">
+      <h1>Charlie Pity Windsor</h1>
+      <p>Tu asesor experto en Odoo – Easy Technology Services</p>
+      <form method="post">
+        <textarea name="mensaje" placeholder="Hazme una pregunta..." required>{{ prompt }}</textarea>
         <div class="button-container">
           <button type="submit">Enviar</button>
         </div>
-        {% if respuesta %}
+      </form>
+      {% if respuesta %}
         <div class="respuesta">{{ respuesta }}</div>
-        {% endif %}
-      </div>
+      {% endif %}
     </div>
-  </form>
+  </div>
 </body>
 </html>
