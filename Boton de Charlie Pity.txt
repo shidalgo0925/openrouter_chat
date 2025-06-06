@@ -1,0 +1,43 @@
+Boton de Charlie Pity
+
+<!-- CHARLIE PITY FUTURISTA -->
+<style>
+#charlie-widget-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(145deg, #00ffe5, #0066ff);
+  color: white;
+  border-radius: 50%;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+  border: none;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+  z-index: 9999;
+  cursor: pointer;
+}
+#charlie-widget-frame {
+  display: none;
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  width: 400px;
+  height: 580px;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.4);
+  z-index: 9998;
+}
+</style>
+<button id="charlie-widget-button">💬</button>
+<iframe id="charlie-widget-frame" src="https://openrouter-chat-cs5a.onrender.com"></iframe>
+<script>
+const charlieBtn = document.getElementById('charlie-widget-button');
+const charlieFrame = document.getElementById('charlie-widget-frame');
+charlieBtn.addEventListener('click', () => {
+  charlieFrame.style.display = (charlieFrame.style.display === 'none') ? 'block' : 'none';
+});
+</script>

@@ -1,0 +1,62 @@
+
+BITÁCORA DEL PROYECTO: Asistente IA EasyTech - openrouter_chat
+Fecha de generación: 2025-06-05 08:13:34
+
+Fecha de inicio: 2025-06-05
+Responsable: Easy Tech Services (shidalgo0925 / easytechservices25@gmail.com)
+Repositorio: https://github.com/shidalgo0925/openrouter_chat
+URL Pública: https://openrouter-chat-cs5a.onrender.com
+Servicio Render: openrouter_chat (Free, Oregon, Python 3)
+Objetivo: Crear un asistente conversacional con Flask que se conecte a OpenRouter (modelo mistral-7b-instruct)
+
+Estructura del Proyecto:
+openrouter_chat/
+├── chat.py                    # App principal en Flask
+├── templates/
+│   └── chat.html             # Plantilla HTML para interfaz del chat
+├── requirements.txt          # Dependencias (Flask, requests, gunicorn)
+├── .gitignore
+└── README.md
+
+Progreso y Acciones Realizadas:
+1. Diseño y codificación inicial (chat.py)
+   - Se implementó un servidor Flask que envía el prompt a la API de OpenRouter.
+   - Usa render_template para mostrar el HTML con el resultado.
+
+2. Plantilla HTML (chat.html)
+   - Interfaz simple con formulario POST.
+   - Se imprime el prompt enviado y la respuesta generada.
+
+3. Configuración de Render
+   - Se subió el proyecto a GitHub.
+   - Se conectó el repositorio en Render.com.
+   - Se definieron los siguientes comandos:
+     - Build: pip install -r requirements.txt
+     - Start: gunicorn chat:app
+
+4. Variables de entorno
+   - Se configuró OPENROUTER_API_KEY en Render > Environment.
+   - Se modificó chat.py para leer la clave con:
+     os.getenv("OPENROUTER_API_KEY", "TU_API_KEY")
+
+5. Error detectado
+   - Respuesta de OpenRouter: código 401 Unauthorized
+   - Confirmado que el token se imprime correctamente en consola.
+   - Confirmado que el request llega a OpenRouter.
+   - El sistema está funcionando, pero OpenRouter no reconoce la API Key como válida.
+
+6. Despliegue exitoso
+   - El servicio arranca en gunicorn correctamente.
+   - Logs indican acceso y POST recibido desde navegador.
+
+Estado Actual:
+- Sistema en línea y funcionando: Sí
+- Despliegue correcto en Render: Sí
+- Problema pendiente: Token de OpenRouter no aceptado (401 Unauthorized)
+
+todo esta bien, modificaciones: que la ventana selga de una vez del tamanio de 
+la caja transparente, las preferencias del chat, idioma espaniol, 
+que sea un programador espacialista en odoo, que sea muy muy amable y 
+agradable, orientado al servicio de usuarios inexpertos, q comience con 
+gracias y termine con gracias una persona agradeble y que se 
+concentre en las preguntas y respuestas precisas
