@@ -106,47 +106,23 @@
   </style>
 </head>
 <body>
-
-  <div class="chat-box">
-    <div class="charlie-side">
+  <form method="POST">
+    <div class="chat-box">
+      <div class="charlie-side">
         <img src="{{ url_for('static', filename='CharliePity.png') }}" alt="Charlie Pity Odoo">
-    </div>
-    <div class="form-side">
-      <h1>Charlie Pity Windsor</h1>
-      <p>Tu asesor experto en Odoo</p>
-      <textarea id="pregunta" placeholder="Hazme una pregunta..."></textarea>
-      <div class="button-container">
-        <button onclick="enviarPregunta()">Enviar</button>
       </div>
-      <div class="respuesta" id="respuesta"></div>
+      <div class="form-side">
+        <h1>Charlie Pity Windsor</h1>
+        <p>Tu asesor experto en Odoo</p>
+        <textarea name="mensaje" placeholder="Hazme una pregunta...">{{ prompt }}</textarea>
+        <div class="button-container">
+          <button type="submit">Enviar</button>
+        </div>
+        {% if respuesta %}
+        <div class="respuesta">{{ respuesta }}</div>
+        {% endif %}
+      </div>
     </div>
-  </div>
-
-  <script>
-    async function enviarPregunta() {
-      const pregunta = document.getElementById("pregunta").value.trim();
-      const respuestaDiv = document.getElementById("respuesta");
-
-      if (!pregunta) return;
-
-      respuestaDiv.textContent = "⏳ Pensando...";
-
-      try {
-        const response = await fetch("/ask", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({ prompt: pregunta })
-        });
-
-        const data = await response.json();
-        respuestaDiv.textContent = data.reply || "⚠️ No se pudo obtener respuesta.";
-      } catch (error) {
-        respuestaDiv.textContent = "❌ Error al conectar con el servidor.";
-      }
-    }
-  </script>
-
+  </form>
 </body>
 </html>
