@@ -3,122 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <title>Charlie Pity Odoo</title>
-  <style>
+   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0e0e1a;
-      color: #f1f1f1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #0e0e1a;
+        color: #f1f1f1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
     }
 
     .chat-box {
-      background: #1a1a2e;
-      border-radius: 16px;
-      display: flex;
-      flex-direction: row;
-      width: 900px;
-      max-width: 95%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.6);
-      overflow: hidden;
+        background: #1a1a2e;
+        border-radius: 16px;
+        display: flex;
+        flex-direction: row;
+        width: 900px;
+        max-width: 75%;
+        box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        overflow: hidden;
     }
 
     .charlie-side {
-      background: #12121f;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+        background: #12121f;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
     .charlie-side img {
-      width: 220px;
-      height: auto;
-      margin-bottom: 20px;
+        width: 220px;
+        height: auto;
+        margin-bottom: 20px;
     }
 
     .form-side {
-      flex: 1;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
+        flex: 1;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
     }
 
     h1 {
-      margin: 0;
-      font-size: 26px;
-      color: #72e0ff;
+        margin: 0;
+        font-size: 26px;
+        color: #72e0ff;
     }
 
     p {
-      margin: 5px 0 20px;
-      font-style: italic;
-      color: #ccc;
+        margin: 5px 0 20px;
+        font-style: italic;
+        color: #ccc;
     }
 
     textarea {
-    width: 80%; /* Agregado */
-    resize: none;
-    padding: 12px;
-    font-size: 15px;
-    border: none;
-    border-radius: 10px;
-    background: #2a2a40;
-    color: white;
-    margin-bottom: 10px;
-    height: 150px;
+        width: 95%;
+        resize: none;
+        padding: 12px;
+        font-size: 15px;
+        border: none;
+        border-radius: 10px;
+        background: #2a2a40;
+        color: white;
+        margin-bottom: 10px;
+        height: 50px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: flex-start;
     }
 
     button {
-    align-self: flex-start; /* Agregado */
-    padding: 10px;
-    background: #00c3ff;
-    border: none;
-    border-radius: 8px;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
+        padding: 12px 24px;
+        background: #00c3ff;
+        border: none;
+        border-radius: 8px;
+        color: black;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
     }
 
     button:hover {
-      background: #00a8d6;
+        background: #00a8d6;
     }
 
     .respuesta {
-      background: #202033;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 20px;
-      overflow-y: auto;
-      max-height: 300px;
-      font-size: 14px;
-      white-space: pre-line;
+        background: #202033;
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 20px;
+        overflow-y: auto;
+        max-height: 500px;
+        font-size: 14px;
+        white-space: pre-line;
     }
-  </style>
-</head>
-<body>
-  <div class="chat-box">
+    </style>
+
+    <div class="chat-box">
     <div class="charlie-side">
-      <img src="{{ url_for('static', filename='CharliePity.png') }}" alt="Charlie Pity">
+        <img src="CharliePity.png" alt="Charlie Pity">
     </div>
     <div class="form-side">
-      <h1>Charlie Pty Windsor</h1>
-      <p>Tu asesor inteligente de Odoo, pregúntame lo que quieras</p>
-      <form method="POST">
-        <textarea name="mensaje" placeholder="Escribe tu mensaje aquí...">{{ prompt }}</textarea>
-        <div class="button-container"></div>
-            <button type="submit">Enviar</button>
+        <h1>Charlie Pity Windsor</h1>
+        <p>Tu asesor experto en Odoo</p>
+        <textarea placeholder="Hazme una pregunta..."></textarea>
+        <div class="button-container">
+        <button>Enviar</button>
         </div>
-      </form>
-      {% if respuesta %}
-        <div class="respuesta">{{ respuesta }}</div>
-      {% endif %}
+        <div class="respuesta" id="respuesta">
+        <!-- Aquí se mostrará la respuesta -->
+        </div>
     </div>
-  </div>
+    </div>
 </body>
 </html>
